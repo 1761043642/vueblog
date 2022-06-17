@@ -5,7 +5,7 @@
     <div class="block">
       <el-timeline>
 
-        <el-timeline-item :timestamp="blog.created" placement="top" v-for="blog in blogs">
+        <el-timeline-item :timestamp="blog.created" placement="top" v-for="(blog,index ) in blogs" :key="index">
           <el-card>
             <h4>
               <router-link :to="{name: 'BlogDetail', params: {blogId: blog.id}}">
@@ -59,9 +59,7 @@
         })
       }
     },
-    created() {
-      this.page(1)
-    }
+    
   }
 </script>
 

@@ -2,10 +2,10 @@
   <div>
 
     <el-container>
-      <el-header>
+      <!-- <el-header>
         <img class="mlogo" src="https://www.markerhub.com/dist/images/logo/markerhub-logo.png" alt="">
-      </el-header>
-      <el-main>
+      </el-header> -->
+      <el-card>
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="用户名" prop="username">
             <el-input v-model="ruleForm.username"></el-input>
@@ -20,7 +20,7 @@
           </el-form-item>
         </el-form>
 
-      </el-main>
+      </el-card>
     </el-container>
 
   </div>
@@ -51,7 +51,10 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             const _this = this
-            this.$axios.post('/login', this.ruleForm).then(res => {
+            this.$axios.post('/login', {ruleForm: {
+          username: 'markerhub',
+          password: '111111'}
+        }).then(res => {
 
               console.log(res.data)
               const jwt = res.headers['authorization']

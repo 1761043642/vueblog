@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import 'github-markdown-css'
+  // import 'github-markdown-css'
   import Header from "../components/Header";
 
   export default {
